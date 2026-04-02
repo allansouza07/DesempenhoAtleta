@@ -52,12 +52,29 @@ while True:
         while a < partidas:
             a+= 1
             gols.append(int(input(f"quantos gols ele fez na {a} partida? ")))
+        print()
+        jogador["total"]= total = sum(gols)
+        jogador["g/p"] = gp = total / partidas
+        jogadores.append(jogador.copy())
+        print(f"Confira os dados do {jogador['nome do atleta']}:")
+        for c,k in jogador.items():
+            if c == "nome do atleta" :
+                print(f"Nome: {k}")
+            if c == "gols":
+                print(f"Partidas: {partidas}")
+                print(f"Gols: {total}")
+            if c == "g/p":
+                print(f"G/P: {k:.2f} gols a cada partida")
+        print()
+        
     else :
         print("erro, tente novamente!")
 
-    jogador["total"]= sum(gols)
-    jogador["g/p"] = gp = total / partidas
-    jogadores.append(jogador.copy())
+#MOSTRAR TODOS OS DADOS
+print(f"ESCOLHA A ESTATÍSTICA\n 1 - Jogadores com mais partidas \n 2 - Maiores Artilheiros: \n 3 - Maiores médias de gols por partida: \n 4 - Todas as informações\n 5 - Sair \n")
+escolha = int(input(": "))
+
+    
     
 
 

@@ -19,6 +19,7 @@ while i < partidas :
 
 jogador["total"]= total = sum(gols)
 jogador["g/p"]= gp = total / partidas
+jogador["partidas"]=partidas
 jogadores.append(jogador.copy())
 
 #DADOS DO JOGADOR
@@ -55,6 +56,7 @@ while True:
         print()
         jogador["total"]= total = sum(gols)
         jogador["g/p"] = gp = total / partidas
+        jogador["partidas"]=partidas
         jogadores.append(jogador.copy())
         print(f"Confira os dados do {jogador['nome do atleta']}:")
         for c,k in jogador.items():
@@ -70,10 +72,29 @@ while True:
     else :
         print("erro, tente novamente!")
 
-#MOSTRAR TODOS OS DADOS
+#MOSTRAR TODOS OS DADOS 
 print(f"ESCOLHA A ESTATÍSTICA\n 1 - Jogadores com mais partidas \n 2 - Maiores Artilheiros: \n 3 - Maiores médias de gols por partida: \n 4 - Todas as informações\n 5 - Sair \n")
-escolha = int(input(": "))
 
+
+#JOGADORES COM MAIS PARTIDAS
+while True:
+    print()
+    escolha = int(input("escolha: "))
+    print()
+    if escolha == 1:
+        print('Você selecionou: "Jogadores com mais partidas"')
+        print()
+        mais_partidas = sorted(jogadores, key= lambda x:x["partidas"], reverse=True)
+        for c, k in enumerate (mais_partidas):
+            print(f"{k["nome do atleta"]}: {k["partidas"]} partidas jogadas") 
+    #JOGADORES ARTILHEIROS
+    if escolha == 2:
+        print('Você selecionou: "Maiores artilheiros"')
+        mais_gols = sorted(jogadores, key = lambda x:x["total"], reverse=True) 
+        for c, k in enumerate(mais_gols):
+            print(f'{k["nome do atleta"]}: {k["total"]} gols ')
+    if escolha == 5:
+        break
     
     
 

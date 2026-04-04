@@ -5,4 +5,5 @@ Esse programa permite que o usuário faça uma análise completa de todos os jog
 - Jogadores com mais gols
 - Jogadores com melhores médias
 
+Além disso, o sistema oferece um buscador que permite que o usuário observe o histórico de qualquer jogador cadastrado, mostrando seu desempenho partida por partida.
 Assim, a pessoa que utiliza o programa tem um leque de oportunidades para analisar todas as estatísticas e avaliar, assim, o desempeho dos jogadores cadastrados.

@@ -1,4 +1,5 @@
 #CADASTRAR O 1° JOGADOR
+import time
 print("Bem-vindo ao sistema de cadastro de jogadores!")
 print(">-" * 40)
 print()
@@ -18,7 +19,7 @@ partidas = int(input(f"quantos jogos o {jogador['nome do atleta']} fez? "))
 while i < partidas :
     i += 1
     gols.append(int(input(f"quantos gols ele fez na {i}° partida: ")))
-
+jogador["gols"] = gols
 jogador["total"]= total = sum(gols)
 jogador["g/p"]= gp = total / partidas
 jogador["partidas"]=partidas
@@ -56,6 +57,7 @@ while True:
             a+= 1
             gols.append(int(input(f"quantos gols ele fez na {a} partida? ")))
         print()
+        jogador["gols"] = gols
         jogador["total"]= total = sum(gols)
         jogador["g/p"] = gp = total / partidas
         jogador["partidas"]=partidas
@@ -75,7 +77,7 @@ while True:
         print("erro, tente novamente!")
 
 #MOSTRAR TODOS OS DADOS 
-print(f"ESCOLHA A ESTATÍSTICA\n 1 - Jogadores com mais partidas \n 2 - Maiores Artilheiros: \n 3 - Maiores médias de gols por partida: \n 4 - Todas as informações\n 5 - Sair \n")
+print(f"ESCOLHA A ESTATÍSTICA\n 1 - Jogadores com mais partidas \n 2 - Maiores Artilheiros: \n 3 - Maiores médias de gols por partida: \n 4 - Todas as informações:\n 5 - Buscar histórico de um jogador: \n 6 - Sair \n")
 
 
 #JOGADORES COM MAIS PARTIDAS
@@ -120,6 +122,26 @@ while True:
             print()
             print(">-"*40)
             print()
+
     if escolha == 5:
+        print(f'Você selecionou: "Buscar o histórico de um jogador"')  
+        print()
+        print("Atletas cadastrados:")
+        for c, k in enumerate (jogadores):
+            print(f"{c + 1}° jogador: {k["nome do atleta"]}")
+        escolha1= int(input("sua escolha: "))
+        print()
+        print(f"Histórico do {jogadores[escolha1 - 1]["nome do atleta"]}")
+        jogador_escolhido = jogadores[escolha1 - 1]["nome do atleta"]
+        gols1 = jogadores[escolha1 - 1]["gols"]
+        print("fazendo a análise...")
+        time.sleep (1)
+        for c,k in enumerate (gols1)  :
+            print(f"na {c+1} partida, {jogador_escolhido} marcou {k} gols")
+
+        
+
+   
+    if escolha == 6:
         break
 print(f"Obrigado por utilizar o programa, desejamos muito sucesso ao {time}")

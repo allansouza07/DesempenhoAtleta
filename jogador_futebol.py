@@ -1,5 +1,7 @@
 #CADASTRAR O 1° JOGADOR
 print("Bem-vindo ao sistema de cadastro de jogadores!")
+print(">-" * 40)
+print()
 time= str(input("defina o nome do seu time: \n"))
 print(f"{time} foi selecionado! Agora vamos cadastrar os jogadores e suas estaísticas: \n")
 jogadores= []
@@ -87,20 +89,37 @@ while True:
         mais_partidas = sorted(jogadores, key= lambda x:x["partidas"], reverse=True)
         for c, k in enumerate (mais_partidas):
             print(f"{k["nome do atleta"]}: {k["partidas"]} partidas jogadas") 
+        print()
+        print(f"O jogador com mais partidas foi o {mais_partidas[0]["nome do atleta"]}")
     #JOGADORES ARTILHEIROS
     if escolha == 2:
         print('Você selecionou: "Maiores artilheiros"')
         mais_gols = sorted(jogadores, key = lambda x:x["total"], reverse=True) 
         for c, k in enumerate(mais_gols):
             print(f'{k["nome do atleta"]}: {k["total"]} gols ')
+        print()
+        print(f"O maior artilheiro foi o {mais_gols[0]["nome do atleta"]}")
+    
+    #MAIORES MÉDIAS
+    if escolha ==3 :
+        print('Você selecionou: "Maiores médias por partidas":')
+        mais_media = sorted(jogadores, key= lambda x:x["g/p"], reverse=True)
+        for c, k in enumerate(mais_media):
+            print(f"{k["nome do atleta"]}: {k["g/p"]} gols por partida")
+        print()
+        print(f" A melhor média de gols por partida foi a do {mais_media[0]["nome do atleta"]}")
+
+    #TODAS AS INFORMAÇÕES
+    if escolha == 4:
+        print(f'Você selecionou: "todas as informações":')
+        for c,k in enumerate (jogadores):
+            print(f"Nome do atleta: {k["nome do atleta"]}")
+            print(f"Partidas jogadas: {k["partidas"]}")
+            print(f"Gols: {k["gols"]}")
+            print(f"Gols por partida: {k["g/p"]}")
+            print()
+            print(">-"*40)
+            print()
     if escolha == 5:
         break
-    
-    
-
-
-        
-
-
-print(jogador)
-print(jogadores)
+print(f"Obrigado por utilizar o programa, desejamos muito sucesso ao {time}")

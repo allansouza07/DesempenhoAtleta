@@ -4,10 +4,11 @@ print("Bem-vindo ao sistema de cadastro de jogadores!")
 print(">-" * 40)
 print()
 time= str(input("defina o nome do seu time: \n"))
-print(f"{time} foi selecionado! Agora vamos cadastrar os jogadores e suas estaísticas: \n")
+print(f"{time} foi selecionado! Agora vamos cadastrar os jogadores e suas estatísticas: \n")
 jogadores= []
 nome = 0
 gols=[]
+medias = []
 i = 0
 total = sum(gols)
 gp = 0
@@ -62,6 +63,7 @@ while True:
         jogador["g/p"] = gp = total / partidas
         jogador["partidas"]=partidas
         jogadores.append(jogador.copy())
+
         print(f"Confira os dados do {jogador['nome do atleta']}:")
         for c,k in jogador.items():
             if c == "nome do atleta" :
@@ -71,6 +73,7 @@ while True:
                 print(f"Gols: {total}")
             if c == "g/p":
                 print(f"G/P: {k:.2f} gols a cada partida")
+                medias.append(jogador["g/p"].copy)
         print()
         
     else :
@@ -106,8 +109,9 @@ while True:
     if escolha ==3 :
         print('Você selecionou: "Maiores médias por partidas":')
         mais_media = sorted(jogadores, key= lambda x:x["g/p"], reverse=True)
+        media = medias.sort(reverse=True)
         for c, k in enumerate(mais_media):
-            print(f"{k["nome do atleta"]}: {k["g/p"]} gols por partida")
+            print(f"{k["nome do atleta"]}: {k["g/p"]:.2f} gols por partida")
         print()
         print(f" A melhor média de gols por partida foi a do {mais_media[0]["nome do atleta"]}")
 
@@ -118,7 +122,7 @@ while True:
             print(f"Nome do atleta: {k["nome do atleta"]}")
             print(f"Partidas jogadas: {k["partidas"]}")
             print(f"Gols: {k["gols"]}")
-            print(f"Gols por partida: {k["g/p"]}")
+            print(f"Gols por partida: {k["g/p"]:.2f}")
             print()
             print(">-"*40)
             print()
@@ -126,7 +130,7 @@ while True:
     if escolha == 5:
         print(f'Você selecionou: "Buscar o histórico de um jogador"')  
         print()
-        print("Atletas cadastrados:")
+        print("Atletas cadastrados:")ss
         for c, k in enumerate (jogadores):
             print(f"{c + 1}° jogador: {k["nome do atleta"]}")
         escolha1= int(input("sua escolha: "))

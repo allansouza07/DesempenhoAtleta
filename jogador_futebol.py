@@ -8,7 +8,6 @@ print(f"{time} foi selecionado! Agora vamos cadastrar os jogadores e suas estat�
 jogadores= []
 nome = 0
 gols=[]
-medias = []
 i = 0
 total = sum(gols)
 gp = 0
@@ -73,7 +72,6 @@ while True:
                 print(f"Gols: {total}")
             if c == "g/p":
                 print(f"G/P: {k:.2f} gols a cada partida")
-                medias.append(jogador["g/p"].copy)
         print()
         
     else :
@@ -109,7 +107,6 @@ while True:
     if escolha ==3 :
         print('Você selecionou: "Maiores médias por partidas":')
         mais_media = sorted(jogadores, key= lambda x:x["g/p"], reverse=True)
-        media = medias.sort(reverse=True)
         for c, k in enumerate(mais_media):
             print(f"{k["nome do atleta"]}: {k["g/p"]:.2f} gols por partida")
         print()
@@ -130,7 +127,7 @@ while True:
     if escolha == 5:
         print(f'Você selecionou: "Buscar o histórico de um jogador"')  
         print()
-        print("Atletas cadastrados:")ss
+        print("Atletas cadastrados:")
         for c, k in enumerate (jogadores):
             print(f"{c + 1}° jogador: {k["nome do atleta"]}")
         escolha1= int(input("sua escolha: "))

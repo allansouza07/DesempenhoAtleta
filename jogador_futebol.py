@@ -136,7 +136,6 @@ while True:
         jogador_escolhido = jogadores[escolha1 - 1]["nome do atleta"]
         gols1 = jogadores[escolha1 - 1]["gols"]
         print("fazendo a análise...")
-        time.sleep (1)
         for c,k in enumerate (gols1)  :
             print(f"na {c+1} partida, {jogador_escolhido} marcou {k} gols")
 
